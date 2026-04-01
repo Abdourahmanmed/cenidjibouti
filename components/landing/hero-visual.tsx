@@ -1,28 +1,23 @@
 "use client"
 
 import Image from "next/image"
-import { useState } from "react"
+import { useMemo, useState } from "react"
 
 import { CalendarDays, ShieldCheck, Users } from "@/components/landing/icons"
 import { LogoCeni } from "@/components/landing/logo-ceni"
 import { siteAssets } from "@/lib/site-assets"
 import { cn } from "@/lib/utils"
 
-const covers = [
-  {
-    src: siteAssets.cover1,
-    alt: "Vue institutionnelle liée aux opérations électorales supervisées par la CENI",
-    priority: true,
-  },
-  {
-    src: siteAssets.cover2,
-    alt: "Agents et observateurs mobilisés pour le suivi du scrutin",
-  },
-  {
-    src: siteAssets.cover3,
-    alt: "Bureau de vote et logistique électorale",
-  },
-]
+const heroSlides = siteAssets.heroSlides.map((src, index) => ({
+  src,
+  alt: `Vue institutionnelle CENI ${index + 1}`,
+  priority: index === 0,
+}))
+
+const heroBottomImages = siteAssets.heroBottomImages.map((src, index) => ({
+  src,
+  alt: `Visuel complémentaire CENI ${index + 1}`,
+}))
 
 function CoverCard({ src, alt, className, priority = false }: { src: string; alt: string; className?: string; priority?: boolean }) {
   const [error, setError] = useState(false)
@@ -55,12 +50,32 @@ function CoverCard({ src, alt, className, priority = false }: { src: string; alt
 }
 
 export function HeroVisual() {
+  const [activeSlideIndex, setActiveSlideIndex] = useState(0)
+  const activeSlide = useMemo(() => heroSlides[activeSlideIndex] ?? heroSlides[0], [activeSlideIndex])
+
   return (
     <div className="rounded-3xl border border-border bg-card p-4 shadow-[0_24px_44px_-24px_rgba(23,37,84,0.55)] md:p-6">
-      <div className="grid gap-3 md:grid-cols-3 md:grid-rows-[minmax(168px,1fr)_minmax(168px,1fr)]">
-        <CoverCard {...covers[0]} className="md:col-span-2 md:row-span-2 min-h-[270px]" />
-        <CoverCard {...covers[1]} className="min-h-[130px]" />
-        <CoverCard {...covers[2]} className="min-h-[130px]" />
+      <div className="space-y-3">
+        <CoverCard {...activeSlide} className="min-h-[270px] md:min-h-[360px]" />
+
+        <div className="flex flex-wrap items-center justify-center gap-2">
+          {heroSlides.map((slide, index) => {
+            const isActive = index === activeSlideIndex
+            return (
+              <button
+                key={slide.src}
+                type="button"
+                aria-label={`Afficher l'image ${index + 1}`}
+                aria-pressed={isActive}
+                onClick={() => setActiveSlideIndex(index)}
+                className={cn(
+                  "h-2.5 rounded-full border border-primary/20 bg-primary/20 transition-all",
+                  isActive ? "w-7 bg-primary" : "w-2.5 hover:bg-primary/45",
+                )}
+              />
+            )
+          })}
+        </div>
       </div>
 
       <div className="mt-4 grid gap-3 sm:grid-cols-2">
@@ -81,6 +96,12 @@ export function HeroVisual() {
             <li className="flex items-center gap-2"><Users className="size-4 text-primary" /> Coordination institutionnelle</li>
           </ul>
         </article>
+      </div>
+
+      <div className="mt-4 grid gap-3 sm:grid-cols-2">
+        {heroBottomImages.map((image) => (
+          <CoverCard key={image.src} {...image} className="min-h-[130px]" />
+        ))}
       </div>
     </div>
   )
