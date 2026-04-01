@@ -44,10 +44,10 @@ export function HeroSection() {
             ))}
           </div>
 
-          <p className="mt-4 inline-flex items-center gap-3 rounded-xl border border-accent/25 bg-white/92 p-3 text-sm text-foreground">
+          <div className="mt-4 inline-flex items-center gap-3 rounded-xl border border-accent/25 bg-white/92 p-3 text-sm text-foreground">
             <LogoCeni variant="round" size={34} className="bg-white" />
             Date du scrutin présidentiel 2026 : <strong className="text-secondary">{keyDates.election}</strong>
-          </p>
+          </div>
         </div>
 
         <HeroVisual />
