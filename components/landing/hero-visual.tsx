@@ -40,7 +40,7 @@ function CoverCard({ src, alt, className, priority = false }: { src: string; alt
         alt={alt}
         fill
         priority={priority}
-        sizes="(max-width: 767px) 100vw, (max-width: 1279px) 45vw, 560px"
+        sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, (max-width: 1535px) 42vw, 720px"
         className="object-cover"
         onError={() => setError(true)}
       />
@@ -54,9 +54,9 @@ export function HeroVisual() {
   const activeSlide = useMemo(() => heroSlides[activeSlideIndex] ?? heroSlides[0], [activeSlideIndex])
 
   return (
-    <div className="rounded-3xl border border-border bg-card p-4 shadow-[0_24px_44px_-24px_rgba(23,37,84,0.55)] md:p-6 ">
+    <div className="w-full rounded-3xl border border-border bg-card p-4 shadow-[0_24px_44px_-24px_rgba(23,37,84,0.55)] md:max-w-[42rem] md:justify-self-end md:p-6 lg:max-w-[48rem] xl:max-w-[54rem]">
       <div className="space-y-3 ">
-        <CoverCard {...activeSlide} className="min-h-[270px] md:min-h-[360px]" />
+        <CoverCard {...activeSlide} className="aspect-[4/3] min-h-[240px] sm:aspect-[16/11] md:aspect-[5/4] md:min-h-0 lg:aspect-[16/10]" />
 
         <div className="flex flex-wrap items-center justify-center gap-2">
           {heroSlides.map((slide, index) => {
@@ -100,7 +100,7 @@ export function HeroVisual() {
 
       <div className="mt-4 grid gap-3 sm:grid-cols-2">
         {heroBottomImages.map((image) => (
-          <CoverCard key={image.src} {...image} className="min-h-[130px]" />
+          <CoverCard key={image.src} {...image} className="aspect-[16/10] min-h-[120px] sm:min-h-0" />
         ))}
       </div>
     </div>
