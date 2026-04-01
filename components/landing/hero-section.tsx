@@ -1,5 +1,7 @@
 import Link from "next/link"
 
+import { HeroVisual } from "@/components/landing/hero-visual"
+import { LogoCeni } from "@/components/landing/logo-ceni"
 import { Button } from "@/components/ui/button"
 import { heroHighlights, keyDates } from "@/lib/ceni-content"
 
@@ -26,22 +28,10 @@ export function HeroSection() {
               <Link href="#mission">Lire la mission de la CENI</Link>
             </Button>
           </div>
-        </div>
 
-        <div className="rounded-3xl border border-border bg-card p-6 shadow-[0_16px_40px_-24px_rgba(11,42,74,0.7)] md:p-8">
-          <div className="mb-6 flex items-center gap-4 border-b border-border pb-6">
-            <div className="flex size-14 items-center justify-center rounded-2xl bg-primary font-semibold tracking-[0.16em] text-primary-foreground">
-              CENI
-            </div>
-            <div>
-              <p className="text-sm font-semibold text-foreground">Présidentielle 2026</p>
-              <p className="text-sm text-muted-foreground">Information institutionnelle officielle</p>
-            </div>
-          </div>
-
-          <div className="space-y-3">
+          <div className="mt-8 grid gap-3 sm:grid-cols-2">
             {heroHighlights.map((item) => (
-              <article key={item.label} className="rounded-2xl border border-border bg-background p-4">
+              <article key={item.label} className="rounded-2xl border border-border bg-card p-4">
                 <div className="flex items-center gap-3">
                   <item.icon className="size-5 text-primary" />
                   <p className="text-sm font-medium text-muted-foreground">{item.label}</p>
@@ -51,10 +41,13 @@ export function HeroSection() {
             ))}
           </div>
 
-          <p className="mt-6 rounded-xl border border-accent/30 bg-accent/10 p-3 text-sm text-foreground">
+          <p className="mt-4 inline-flex items-center gap-3 rounded-xl border border-accent/30 bg-accent/10 p-3 text-sm text-foreground">
+            <LogoCeni variant="round" size={34} className="bg-white" />
             Date du scrutin présidentiel 2026 : <strong>{keyDates.election}</strong>
           </p>
         </div>
+
+        <HeroVisual />
       </div>
     </section>
   )

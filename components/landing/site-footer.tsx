@@ -1,5 +1,6 @@
 import Link from "next/link"
 
+import { LogoCeni } from "@/components/landing/logo-ceni"
 import { footerLinks, siteMeta } from "@/lib/ceni-content"
 
 export function SiteFooter() {
@@ -7,7 +8,10 @@ export function SiteFooter() {
     <footer className="border-t border-border/80 bg-primary py-12 text-primary-foreground">
       <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 sm:px-6 md:grid-cols-2 lg:px-8">
         <div>
-          <p className="text-xs tracking-[0.22em] uppercase text-primary-foreground/70">République de Djibouti</p>
+          <div className="flex items-center gap-3">
+            <LogoCeni variant="square" size={54} className="border-white/20 bg-white" />
+            <p className="text-xs tracking-[0.22em] uppercase text-primary-foreground/70">République de Djibouti</p>
+          </div>
           <h3 className="mt-3 text-2xl font-semibold">{siteMeta.fullName}</h3>
           <p className="mt-4 max-w-md text-sm text-primary-foreground/80">
             Institution chargée de veiller à la régularité du processus électoral, dans un cadre de neutralité, de stabilité et de transparence.
