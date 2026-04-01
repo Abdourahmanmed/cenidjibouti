@@ -5,20 +5,21 @@ import { useState } from "react"
 
 import { CalendarDays, ShieldCheck, Users } from "@/components/landing/icons"
 import { LogoCeni } from "@/components/landing/logo-ceni"
+import { siteAssets } from "@/lib/site-assets"
 import { cn } from "@/lib/utils"
 
 const covers = [
   {
-    src: "/assets/ceni/cover-1.jpg",
+    src: siteAssets.cover1,
     alt: "Vue institutionnelle liée aux opérations électorales supervisées par la CENI",
     priority: true,
   },
   {
-    src: "/assets/ceni/cover-2.jpg",
+    src: siteAssets.cover2,
     alt: "Agents et observateurs mobilisés pour le suivi du scrutin",
   },
   {
-    src: "/assets/ceni/cover-3.jpg",
+    src: siteAssets.cover3,
     alt: "Bureau de vote et logistique électorale",
   },
 ]
