@@ -5,7 +5,7 @@ import { footerLinks, siteMeta } from "@/lib/ceni-content"
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border/80 bg-primary py-12 text-primary-foreground">
+    <footer className="border-t border-border/80 bg-[#172554] py-12 text-primary-foreground">
       <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 sm:px-6 md:grid-cols-2 lg:px-8">
         <div>
           <div className="flex items-center gap-3">
@@ -20,7 +20,7 @@ export function SiteFooter() {
         <div className="grid gap-2 text-sm">
           <p className="mb-2 font-semibold">Liens utiles</p>
           {footerLinks.map((item) => (
-            <Link key={item.href} href={item.href} className="text-primary-foreground/80 transition-colors hover:text-white">
+            <Link key={item.href} href={item.href} className="text-primary-foreground/80 transition-colors hover:text-[#DBEAFE]">
               {item.label}
             </Link>
           ))}

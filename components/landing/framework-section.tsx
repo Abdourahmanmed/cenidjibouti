@@ -23,13 +23,13 @@ export function FrameworkSection() {
       eyebrow="Cadre"
       title="Rôle et cadre d'intervention"
       description="Un dispositif institutionnel précis, lisible et coordonné pour garantir la bonne conduite du processus électoral."
-      className="bg-muted/40"
+      className="bg-muted/25"
     >
       <div className="grid gap-5 lg:grid-cols-2">
         <article className="rounded-3xl border border-border bg-card p-7">
           <div className="flex items-center gap-3">
             <LogoCeni variant="square" size={42} className="bg-white" />
-            <h3 className="text-xl font-semibold text-foreground">Attributions de la CENI</h3>
+            <h3 className="text-xl font-semibold text-secondary">Attributions de la CENI</h3>
           </div>
           <p className="mt-2 text-sm text-muted-foreground">Missions essentielles de supervision, de contrôle et de suivi.</p>
           <div className="mt-6">
@@ -38,7 +38,7 @@ export function FrameworkSection() {
         </article>
 
         <article className="rounded-3xl border border-border bg-card p-7">
-          <h3 className="text-xl font-semibold text-foreground">Cadre administratif associé</h3>
+          <h3 className="text-xl font-semibold text-secondary">Cadre administratif associé</h3>
           <p className="mt-2 text-sm text-muted-foreground">Intervention encadrée et coordination institutionnelle continue.</p>
           <div className="mt-6">
             <BulletList items={framework} />

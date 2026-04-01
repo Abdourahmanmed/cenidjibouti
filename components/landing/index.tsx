@@ -10,7 +10,7 @@ import { SiteHeader } from "@/components/landing/site-header"
 
 export function LandingPage() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="institutional-wave min-h-screen bg-background text-foreground">
       <SiteHeader />
       <main>
         <HeroSection />
