@@ -1,5 +1,6 @@
 import { framework, roles } from "@/lib/ceni-content"
 
+import { LogoCeni } from "@/components/landing/logo-ceni"
 import { SectionShell } from "@/components/landing/section-shell"
 
 function BulletList({ items }: { items: string[] }) {
@@ -26,7 +27,10 @@ export function FrameworkSection() {
     >
       <div className="grid gap-5 lg:grid-cols-2">
         <article className="rounded-3xl border border-border bg-card p-7">
-          <h3 className="text-xl font-semibold text-foreground">Attributions de la CENI</h3>
+          <div className="flex items-center gap-3">
+            <LogoCeni variant="square" size={42} className="bg-white" />
+            <h3 className="text-xl font-semibold text-foreground">Attributions de la CENI</h3>
+          </div>
           <p className="mt-2 text-sm text-muted-foreground">Missions essentielles de supervision, de contrôle et de suivi.</p>
           <div className="mt-6">
             <BulletList items={roles} />

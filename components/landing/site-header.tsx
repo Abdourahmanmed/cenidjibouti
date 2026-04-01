@@ -3,9 +3,10 @@
 import Link from "next/link"
 import { useState } from "react"
 
-import { siteMeta, navigation } from "@/lib/ceni-content"
-import { Button } from "@/components/ui/button"
 import { Menu, X } from "@/components/landing/icons"
+import { LogoCeni } from "@/components/landing/logo-ceni"
+import { Button } from "@/components/ui/button"
+import { navigation, siteMeta } from "@/lib/ceni-content"
 import { cn } from "@/lib/utils"
 
 export function SiteHeader() {
@@ -15,9 +16,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/95 backdrop-blur-sm">
       <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="#top" className="group flex items-center gap-3">
-          <span className="flex size-11 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-sm">
-            <span className="text-sm font-bold tracking-wider">CENI</span>
-          </span>
+          <LogoCeni variant="round" size={44} priority className="border-primary/20 bg-white" />
           <div className="hidden sm:block">
             <p className="text-sm font-semibold text-foreground">{siteMeta.name}</p>
             <p className="text-xs text-muted-foreground">{siteMeta.fullName}</p>
