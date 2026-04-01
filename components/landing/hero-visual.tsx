@@ -29,7 +29,7 @@ function CoverCard({ src, alt, className, priority = false }: { src: string; alt
   if (error) {
     return (
       <div className={cn("relative overflow-hidden rounded-2xl border border-border bg-muted/70", className)}>
-        <div className="absolute inset-0 bg-[linear-gradient(140deg,rgba(18,58,102,0.2),rgba(255,255,255,0.7))]" />
+        <div className="absolute inset-0 bg-[linear-gradient(140deg,rgba(22,163,74,0.18),rgba(219,234,254,0.75))]" />
         <div className="relative flex h-full items-center justify-center p-4 text-center text-xs font-medium tracking-wide text-primary/85 uppercase">
           Visuel CENI en cours de publication
         </div>
@@ -48,14 +48,14 @@ function CoverCard({ src, alt, className, priority = false }: { src: string; alt
         className="object-cover"
         onError={() => setError(true)}
       />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-primary/25 via-transparent to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-secondary/30 via-transparent to-transparent" />
     </div>
   )
 }
 
 export function HeroVisual() {
   return (
-    <div className="rounded-3xl border border-border bg-card p-4 shadow-[0_24px_44px_-24px_rgba(11,42,74,0.85)] md:p-6">
+    <div className="rounded-3xl border border-border bg-card p-4 shadow-[0_24px_44px_-24px_rgba(23,37,84,0.55)] md:p-6">
       <div className="grid gap-3 md:grid-cols-3 md:grid-rows-[minmax(168px,1fr)_minmax(168px,1fr)]">
         <CoverCard {...covers[0]} className="md:col-span-2 md:row-span-2 min-h-[270px]" />
         <CoverCard {...covers[1]} className="min-h-[130px]" />

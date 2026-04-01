@@ -13,35 +13,31 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 border-b border-border/80 bg-background/95 backdrop-blur-sm">
       <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="#top" className="group flex items-center gap-3">
           <LogoCeni variant="round" size={44} priority className="border-primary/20 bg-white" />
           <div className="hidden sm:block">
-            <p className="text-sm font-semibold text-foreground">{siteMeta.name}</p>
+            <p className="text-sm font-semibold text-secondary">{siteMeta.name}</p>
             <p className="text-xs text-muted-foreground">{siteMeta.fullName}</p>
           </div>
         </Link>
 
         <nav className="hidden items-center gap-6 lg:flex">
           {navigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
+            <Link key={item.href} href={item.href} className="text-sm font-medium text-muted-foreground transition-colors hover:text-secondary">
               {item.label}
             </Link>
           ))}
         </nav>
 
         <div className="hidden lg:block">
-          <Button className="bg-primary px-5 text-primary-foreground hover:bg-primary/90">{siteMeta.cta}</Button>
+          <Button className="bg-primary px-5 text-primary-foreground hover:bg-[#15803D]">{siteMeta.cta}</Button>
         </div>
 
         <button
           type="button"
-          className="inline-flex size-10 items-center justify-center rounded-xl border border-border text-foreground lg:hidden"
+          className="inline-flex size-10 items-center justify-center rounded-xl border border-border text-secondary lg:hidden"
           onClick={() => setOpen((prev) => !prev)}
           aria-expanded={open}
           aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
@@ -56,13 +52,13 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-lg px-2 py-2 text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground"
+              className="rounded-lg px-2 py-2 text-sm font-medium text-muted-foreground hover:bg-muted/50 hover:text-secondary"
               onClick={() => setOpen(false)}
             >
               {item.label}
             </Link>
           ))}
-          <Button className="mt-2 w-full bg-primary text-primary-foreground hover:bg-primary/90">{siteMeta.cta}</Button>
+          <Button className="mt-2 w-full bg-primary text-primary-foreground hover:bg-[#15803D]">{siteMeta.cta}</Button>
         </nav>
       </div>
     </header>
