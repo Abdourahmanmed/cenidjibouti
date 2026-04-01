@@ -3,18 +3,19 @@
 import Image from "next/image"
 import { useMemo, useState } from "react"
 
+import { isPdfAsset, siteAssets } from "@/lib/site-assets"
 import { cn } from "@/lib/utils"
 
 type LogoVariant = "round" | "square"
 
 const LOGO_MAP: Record<LogoVariant, { src: string; alt: string }> = {
   round: {
-    src: "/assets/ceni/logo-rond.png",
+    src: siteAssets.logoRound,
     alt: "Logo rond officiel de la CENI",
   },
   square: {
-    src: "/assets/ceni/logo-carre.png",
-    alt: "Logo carré officiel de la CENI",
+    src: siteAssets.logoRound,
+    alt: "Logo officiel de la CENI",
   },
 }
 
@@ -29,6 +30,7 @@ type LogoCeniProps = {
 export function LogoCeni({ variant = "round", size = 48, className, priority = false, alt }: LogoCeniProps) {
   const [hasError, setHasError] = useState(false)
   const logo = LOGO_MAP[variant]
+  const logoIsPdf = isPdfAsset(logo.src)
 
   const fallbackLabel = useMemo(() => (variant === "round" ? "CENI" : "Commission Électorale"), [variant])
 
@@ -42,7 +44,7 @@ export function LogoCeni({ variant = "round", size = 48, className, priority = f
       style={{ width: size, height: size }}
       aria-label={alt ?? logo.alt}
     >
-      {hasError ? (
+      {hasError || logoIsPdf ? (
         <span
           className={cn(
             "px-1 text-center font-semibold tracking-[0.14em] text-primary",
