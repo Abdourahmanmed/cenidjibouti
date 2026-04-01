@@ -54,8 +54,8 @@ export function HeroVisual() {
   const activeSlide = useMemo(() => heroSlides[activeSlideIndex] ?? heroSlides[0], [activeSlideIndex])
 
   return (
-    <div className="rounded-3xl border border-border bg-card p-4 shadow-[0_24px_44px_-24px_rgba(23,37,84,0.55)] md:p-6">
-      <div className="space-y-3">
+    <div className="rounded-3xl border border-border bg-card p-4 shadow-[0_24px_44px_-24px_rgba(23,37,84,0.55)] md:p-6 ">
+      <div className="space-y-3 ">
         <CoverCard {...activeSlide} className="min-h-[270px] md:min-h-[360px]" />
 
         <div className="flex flex-wrap items-center justify-center gap-2">
