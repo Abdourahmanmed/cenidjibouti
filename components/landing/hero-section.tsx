@@ -12,7 +12,7 @@ export function HeroSection() {
       className="relative overflow-hidden border-b border-border/70 bg-[linear-gradient(130deg,rgba(220,252,231,0.55),rgba(219,234,254,0.42)_58%,rgba(248,250,252,0.95))] py-18 md:py-24"
     >
       <div className="pointer-events-none absolute inset-0 opacity-40 [background-image:linear-gradient(to_right,rgba(30,58,138,0.07)_1px,transparent_1px),linear-gradient(to_bottom,rgba(22,163,74,0.06)_1px,transparent_1px)] [background-size:64px_64px]" />
-      <div className="relative mx-auto grid w-full max-w-7xl gap-10 px-4 sm:px-6 md:grid-cols-2 md:items-center lg:px-8">
+      <div className="relative mx-auto grid w-full max-w-7xl gap-10 px-4 sm:px-6 md:grid-cols-2 md:items-center lg:px-2">
         <div>
           <p className="mb-4 inline-flex rounded-full border border-primary/30 bg-[#DCFCE7] px-3 py-1 text-xs font-semibold tracking-[0.16em] text-[#15803D] uppercase">
             Institution électorale nationale
